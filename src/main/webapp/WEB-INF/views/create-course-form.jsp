@@ -47,7 +47,7 @@
     <div style="clear: both;"></div>
 
     <p>
-        <a href="${pageContext.request.contextPath}/user/Addcourse">Back to List</a>
+        <a href="${pageContext.request.contextPath}/admin/Addcourse">Back to List</a>
     </p>
 
 </div>

@@ -29,7 +29,7 @@
 </div>
 
 
-<center><button type="button" class="btn btn-primary"  onclick="window.location.href='list'; return false;">Add Course</button></center>
-<center><button type="button" class="btn btn-success"  onclick="window.location.href='list'; return false;">Assign Course</button></center>
+<center><button type="button" class="btn btn-primary"  onclick="window.location.href='Addcourse'; return false;">Add Course</button></center>
+<center><button type="button" class="btn btn-success"  onclick="window.location.href='Addcourse'; return false;">Assign Course</button></center>
 </body>
 </html>

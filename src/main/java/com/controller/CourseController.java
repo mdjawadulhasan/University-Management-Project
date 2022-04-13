@@ -1,9 +1,7 @@
 package com.controller;
 
 import com.model.Course;
-import com.model.User;
 import com.service.CourseService;
-import com.service.UserService;
 import org.springframework.beans.propertyeditors.StringTrimmerEditor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,7 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Controller
-@RequestMapping("/user")
+@RequestMapping("/admin")
 public class CourseController {
 
     private final CourseService courseService;
@@ -51,7 +49,7 @@ public class CourseController {
     @RequestMapping("/createcourse")
     public String create(@ModelAttribute("course") Course course) {
         courseService.save(course);
-        return "redirect:/user/Addcourse";
+        return "redirect:/admin/Addcourse";
     }
 
 
@@ -66,14 +64,14 @@ public class CourseController {
     @RequestMapping("/updatecourse")
     public String update(@ModelAttribute("course") Course course) {
         courseService.update(course);
-        return "redirect:/user/Addcourse";
+        return "redirect:/admin/Addcourse";
     }
 
 
     @RequestMapping("/deletecourse")
     public String delete(@RequestParam("courseid") int id) {
         courseService.delete(id);
-        return "redirect:/user/Addcourse";
+        return "redirect:/admin/Addcourse";
     }
 
     /*
