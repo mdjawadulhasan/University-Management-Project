@@ -19,9 +19,9 @@
 
 
     <ul>
-        <li><a href="#">Hello Admin</a></li>
-        <li><a href="${pageContext.request.contextPath}/admin/Admin">Home</a></li>
-        <li><a href="${pageContext.request.contextPath}/admin/login">Logout</a></li>
+        <li><a href="#">Welcome</a></li>
+        <li><a href="${pageContext.request.contextPath}/admin/Admine">Home</a></li>
+        <li><a href="logoutcandidate">Logout</a></li>
     </ul>
 
 </div>

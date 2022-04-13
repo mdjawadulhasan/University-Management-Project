@@ -19,11 +19,9 @@
 
 
     <ul>
-        <li><a href="#">Hello Jawad</a></li>
-        <li><a href="${pageContext.request.contextPath}/course/list">Profile</a></li>
-        <%-- <li><a href="#">Give Vote</a></li>
-         <li><a href="#">See Result</a></li>--%>
-        <li><a href="logoutcandidate">Logout</a></li>
+        <li><a href="#">Hello Admin</a></li>
+        <li><a href="${pageContext.request.contextPath}/admin/Admin">Home</a></li>
+        <li><a href="${pageContext.request.contextPath}/admin/login">Logout</a></li>
     </ul>
 
 </div>

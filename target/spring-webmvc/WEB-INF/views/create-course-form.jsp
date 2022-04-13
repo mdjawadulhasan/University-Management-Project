@@ -27,7 +27,7 @@
             <tbody>
             <tr>
                 <td><label>Course name:</label></td>
-                <td><form:input path="CourseName"/></td>
+                <td><form:input path="CourseName" /></td>
             </tr>
             <tr>
                 <td><label>Section name:</label></td>
