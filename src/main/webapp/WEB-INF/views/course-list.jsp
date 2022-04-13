@@ -49,7 +49,7 @@
                     <c:param name="courseid" value="${course.id}" />
                 </c:url>
 
-                <c:url var="deleteLink" value="/user/delete">
+                <c:url var="deleteLink" value="/user/deletecourse">
                     <c:param name="courseid" value="${course.id}" />
                 </c:url>
 

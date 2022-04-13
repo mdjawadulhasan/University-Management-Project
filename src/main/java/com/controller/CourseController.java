@@ -70,6 +70,12 @@ public class CourseController {
     }
 
 
+    @RequestMapping("/deletecourse")
+    public String delete(@RequestParam("courseid") int id) {
+        courseService.delete(id);
+        return "redirect:/user/Addcourse";
+    }
+
     /*
 
 
@@ -77,11 +83,7 @@ public class CourseController {
 
 
 
-    @RequestMapping("/delete")
-    public String delete(@RequestParam("userId") int id) {
-        userService.delete(id);
-        return "redirect:/user/list";
-    }
+
 
     @RequestMapping("/search")
     public String search(@RequestParam(name = "searchValue", required = false) String firstname, Model model) {

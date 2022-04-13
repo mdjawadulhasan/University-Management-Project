@@ -1,7 +1,6 @@
 package com.dao;
 
 import com.model.Course;
-import com.model.User;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
@@ -48,7 +47,9 @@ public class CourseDaoImp implements CourseDao {
 
     @Override
     public void delete(int id) {
-
+        Course course = get(id);
+        Session session = this.sessionFactory.getCurrentSession();
+        session.delete(course);
     }
 
     @Override

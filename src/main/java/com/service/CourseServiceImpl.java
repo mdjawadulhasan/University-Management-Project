@@ -42,7 +42,7 @@ public class CourseServiceImpl implements CourseService {
 
     @Override
     public void delete(int id) {
-
+        courseDao.delete(id);
     }
 
     @Override
