@@ -38,6 +38,27 @@ public class CourseController {
         return "Admin-home";
     }
 
+    @RequestMapping("/login")
+    public String Login() {
+
+        return "adminlogin";
+    }
+
+    @RequestMapping("/loginvalidate")
+    public String LoginValidate(@RequestParam("uname") String uname,@RequestParam("psw") String pass,Model model) {
+        String username = "admin";
+        String password = "123";
+        if (username.equals(uname) && pass.equals(password))
+        {
+            model.addAttribute("admin", "success");
+            return "Admin-home";
+        }
+        else{
+            model.addAttribute("admin", "failed");
+            return "adminlogin";
+
+        }
+    }
 
     @RequestMapping("/Addcourse")
     public String list(Model model) {

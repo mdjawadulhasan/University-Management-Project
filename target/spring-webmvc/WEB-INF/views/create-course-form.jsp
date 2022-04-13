@@ -6,7 +6,7 @@
 
 <head>
     <title>Save User</title>
-
+    <jsp:include page="Adminbody.jsp"/>
     <link type="text/css"
           rel="stylesheet"
           href="${pageContext.request.contextPath}/resources/css/style.css">
@@ -18,14 +18,10 @@
 
 <body>
 
-<div id="wrapper">
-    <div id="header">
-        <h2>User Form</h2>
-    </div>
-</div>
+
 
 <div id="container">
-    <h3>Save User</h3>
+    <h3>Create Course</h3>
     <form:form action="createcourse" modelAttribute="course" method="POST">
         <table>
             <tbody>
@@ -39,7 +35,7 @@
             </tr>
             <tr>
                 <td><label></label></td>
-                <td><input type="submit" value="Save" class="save"/></td>
+                <td><input type="submit" class="btn btn-info" value="Save" class="save"/></td>
             </tr>
             </tbody>
         </table>
