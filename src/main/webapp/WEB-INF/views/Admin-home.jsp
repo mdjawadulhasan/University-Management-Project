@@ -14,6 +14,8 @@
 </head>
 <body>
 <center><button type="button" class="btn btn-primary"  onclick="window.location.href='Addcourse'; return false;">Add Course</button></center>
-<center><button type="button" class="btn btn-success"  onclick="window.location.href='Addcourse'; return false;">Assign Course</button></center>
+<center><button type="button" class="btn btn-success"  onclick="window.location.href='Addcourse'; return false;">Manage Student</button></center>
+<center><button type="button" class="btn btn-secondary"  onclick="window.location.href='Addcourse'; return false;">Block Student</button></center>
+<center><button type="button" class="btn btn-info"  onclick="window.location.href='Addcourse'; return false;">Manage Faculty Members</button></center>
 </body>
 </html>

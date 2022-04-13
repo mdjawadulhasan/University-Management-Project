@@ -38,7 +38,7 @@
             </tr>
             <tr>
                 <td><label></label></td>
-                <td><input type="submit" value="Update" class="update"/></td>
+                <td><input type="submit" class="btn btn-info" value="Update" class="update"/></td>
             </tr>
             </tbody>
         </table>

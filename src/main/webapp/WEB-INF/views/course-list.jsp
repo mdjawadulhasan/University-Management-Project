@@ -27,8 +27,8 @@
 
         <form:form action="searchcourse" method="GET">
             Search user by Coursename: <input type="text" name="searchValue"/>
-            <input type="submit" value="Search" class="add-button"/>
-            <input type="button" value="Add Course"
+            <input type="submit" class="btn btn-success" value="Search" class="add-button"/>
+            <input type="button" class="btn btn-info" value="Add Course"
                    onclick="window.location.href='course-create-form'; return false;"
                    class="add-button">
         </form:form>
@@ -57,9 +57,9 @@
                     <td> ${course.courseName} </td>
                     <td> ${course.coureseSection} </td>
                     <td>
-                        <a href="${updateLink}">Update</a>
+                        <a href="${updateLink}" class="btn btn-primary" >Update</a>
                     </td>
-                    <td><a href="${deleteLink}">Delete</a></td>
+                    <td><a href="${deleteLink}" class="btn btn-danger">Delete</a></td>
                 </tr>
 
             </c:forEach>
