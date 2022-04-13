@@ -11,11 +11,27 @@
 <html>
 <head>
     <title>ADMIN- HOME </title>
+    <style>
+        .custom {
+            width: 300px !important;
+        }
+    </style>
 </head>
 <body>
-<center><button type="button" class="btn btn-primary"  onclick="window.location.href='Addcourse'; return false;">Add Course</button></center>
-<center><button type="button" class="btn btn-success"  onclick="window.location.href='Addcourse'; return false;">Manage Student</button></center>
-<center><button type="button" class="btn btn-secondary"  onclick="window.location.href='Addcourse'; return false;">Block Student</button></center>
-<center><button type="button" class="btn btn-info"  onclick="window.location.href='Addcourse'; return false;">Manage Faculty Members</button></center>
+<center><button type="button" class="btn btn-primary btn-lg custom"  onclick="window.location.href='Addcourse'; return false;">Add Course</button></center>
+<br>
+<center><button type="button" class="btn btn-success btn-lg custom"  onclick="window.location.href='Addcourse'; return false;">Manage Student</button></center>
+<br>
+<center><button type="button" class="btn btn-secondary btn-lg  custom"  onclick="window.location.href='Addcourse'; return false;">Block Student</button></center>
+<br>
+<center><button type="button" class="btn btn-info btn-lg custom"  onclick="window.location.href='Addcourse'; return false;">Manage Faculty Members</button></center>
+
+
+
+
+
+
+
+
 </body>
 </html>

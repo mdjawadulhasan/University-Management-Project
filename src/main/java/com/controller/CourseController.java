@@ -44,6 +44,9 @@ public class CourseController {
         return "adminlogin";
     }
 
+
+
+
     @RequestMapping("/loginvalidate")
     public String LoginValidate(@RequestParam("uname") String uname,@RequestParam("psw") String pass,Model model) {
         String username = "admin";
