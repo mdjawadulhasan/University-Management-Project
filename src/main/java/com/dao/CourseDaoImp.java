@@ -1,7 +1,6 @@
 package com.dao;
 
 import com.model.Course;
-import com.model.User;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;

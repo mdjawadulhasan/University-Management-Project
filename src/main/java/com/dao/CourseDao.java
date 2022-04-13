@@ -1,7 +1,6 @@
 package com.dao;
 
 import com.model.Course;
-import com.model.User;
 
 import java.util.List;
 
