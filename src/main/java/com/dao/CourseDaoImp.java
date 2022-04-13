@@ -58,4 +58,8 @@ public class CourseDaoImp implements CourseDao {
         Query<Course> userQuery = session.createQuery("from Course where CourseName like '%" + coursename + "%'", Course.class);
         return userQuery.getResultList();
     }
+
+
+
+
 }

@@ -3,7 +3,6 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ page isELIgnored="false" %>
 
-
 <!DOCTYPE html>
 
 <html lang="en" dir="ltr">
@@ -71,26 +70,35 @@
             </div>
             <div class="signup-form">
                 <div class="title">Signup</div>
-                <form action="votersregister" method="post">
+
+
+
+
+                <form:form action="createstudent" modelAttribute="student" method="POST">
                     <div class="input-boxes">
                         <div class="input-box">
                             <i class="fas fa-user"></i>
-                            <input type="text"name="username" placeholder="Enter your Username" required>
+<%--                            <td><label>ID:</label></td>--%>
+                            <td><form:input path="studentID" required="required"/></td>
                         </div>
                         <div class="input-box">
                             <i class="fas fa-envelope"></i>
-                            <input type="text" name="email" placeholder="Enter your email" required>
+<%--                            <td><label>Email:</label></td>--%>
+                            <td><form:input path="studentemaIL" required="required"/></td>
                         </div>
                         <div class="input-box">
                             <i class="fas fa-lock"></i>
-                            <input type="password" name="password" placeholder="Enter your password" required>
+<%--                            <td><label>Password:</label></td>--%>
+                            <td><form:input path="studentpass" required="required"/></td>
                         </div>
                         <div class="button input-box">
-                            <input type="submit" value="Sumbit">
+                            <input type="submit" class="btn btn-info" value="Save" class="save"/>
                         </div>
                         <div class="text sign-up-text">Already have an account? <label for="flip">Login now</label></div>
                     </div>
-                </form>
+                    </form:form>
+
+
             </div>
         </div>
     </div>
