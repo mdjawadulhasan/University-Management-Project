@@ -6,4 +6,6 @@ import com.model.Student;
 public interface StudentService {
 
     public void save(Student student);
+
+    public Student getStudent(Student student);
 }

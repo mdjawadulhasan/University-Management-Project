@@ -10,6 +10,7 @@ import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 @RequestMapping("/student")
@@ -40,4 +41,27 @@ private final StudentService studentService;
         studentService.save(student);
         return "redirect:/student/registration";
     }
+
+
+    @RequestMapping("/stlogin")
+    public String login(@RequestParam("studentid") String studentid,@RequestParam("password") String pass,Model model) {
+        Student reqstudent=new Student();
+        reqstudent.setStudentID(studentid);
+        reqstudent.setStudentpass(pass);
+
+
+        Student student=studentService.getStudent(reqstudent);
+        if(student!= null)
+        {
+           model.addAttribute("student", student);
+           return "student-profile";
+        }
+        else{
+            model.addAttribute("msg","failed");
+            return "redirect:/student/registration";
+        }
+
+
+    }
+
 }

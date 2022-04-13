@@ -50,11 +50,13 @@
         <div class="form-content">
             <div class="login-form">
                 <div class="title">Login</div>
-                <form action="voterslogin" method="post">
+
+
+                <form action="stlogin" method="post">
                     <div class="input-boxes">
                         <div class="input-box">
                             <i class="fas fa-user"></i>
-                            <input type="text" name="username" placeholder="Enter your Username" required>
+                            <input type="text" name="studentid" placeholder="Enter your Student ID" required>
                         </div>
                         <div class="input-box">
                             <i class="fas fa-lock"></i>
@@ -67,13 +69,15 @@
                         <div class="text sign-up-text">Don't have an account? <label for="flip">Sigup now</label></div>
                     </div>
                 </form>
+
+
+
+
             </div>
+
+
             <div class="signup-form">
                 <div class="title">Signup</div>
-
-
-
-
                 <form:form action="createstudent" modelAttribute="student" method="POST">
                     <div class="input-boxes">
                         <div class="input-box">
@@ -90,6 +94,8 @@
                             <i class="fas fa-lock"></i>
 <%--                            <td><label>Password:</label></td>--%>
                             <td><form:input path="studentpass" required="required"/></td>
+                            .
+
                         </div>
                         <div class="button input-box">
                             <input type="submit" class="btn btn-info" value="Save" class="save"/>
@@ -97,37 +103,16 @@
                         <div class="text sign-up-text">Already have an account? <label for="flip">Login now</label></div>
                     </div>
                     </form:form>
-
-
             </div>
         </div>
     </div>
 </div>
 
-<%--
-<%
-    if (request.getSession().getAttribute("success") != null) {
-%>
-
-<script>
-    Swal.fire(
-        'Registration Success!',
-        '',
-        'success'
-    )
-</script>
-
 
 <%
+    if (request.getAttribute("msg")=="failed") {
 
-        session=request.getSession();
-        session.removeAttribute("success");
-        session.invalidate();
-    }
-%>
 
-<%
-    if (request.getSession().getAttribute("error") != null) {
 %>
 
 <script>
@@ -135,84 +120,15 @@
         icon: 'error',
         title: 'Wrong Password',
         text: 'Try Again!',
+
     })
+
 </script>
-
-
 <%
-        session=request.getSession();
-        session.removeAttribute("error");
-        session.invalidate();
+
     }
+
 %>
-
-
-<%
-    if (request.getSession().getAttribute("notallowed") != null) {
-%>
-
-<script>
-    Swal.fire({
-        icon: 'error',
-        title: 'You are not activated yet',
-        text: 'Go Back to login Page!',
-    })
-</script>
-
-
-<%
-        session=request.getSession();
-        session.removeAttribute("notallowed");
-        session.invalidate();
-    }
-%>
-
-
-
-<%
-    if (request.getSession().getAttribute("alreadyvoted") != null) {
-%>
-
-<script>
-    Swal.fire({
-        icon: 'error',
-        title: 'Your Vote has Casted already !',
-        text: 'Go Back to login Page!',
-    })
-</script>
-
-
-<%
-        session=request.getSession();
-        session.removeAttribute("alreadyvoted");
-        session.invalidate();
-    }
-%>
-
-
-<%
-    if (request.getSession().getAttribute("voted") != null) {
-%>
-
-<script>
-    Swal.fire(
-        'Vote Given!',
-        'Go Back to login Page',
-        'success'
-    )
-</script>
-
-
-<%
-        session=request.getSession();
-        session.removeAttribute("voted");
-        session.invalidate();
-    }
-%>
---%>
-
-
-
 
 </body>
 </html>

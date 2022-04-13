@@ -25,4 +25,9 @@ public class StudentServiceImp implements StudentService {
     public void save(Student student) {
         studentDao.save(student);
     }
+
+    @Override
+    public Student getStudent(Student student) {
+        return studentDao.getStudent(student);
+    }
 }
