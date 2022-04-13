@@ -47,6 +47,6 @@ public class CourseServiceImpl implements CourseService {
 
     @Override
     public List<Course> getAll(String firstName) {
-        return null;
+        return courseDao.getAll(firstName);
     }
 }

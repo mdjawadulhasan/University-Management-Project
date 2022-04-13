@@ -5,17 +5,17 @@
 
 <html>
 <head>
-    <title>User List</title>
+
     <link type="text/css"
           rel="stylesheet"
           href="${pageContext.request.contextPath}/resources/css/navbar.css"/>
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
+    <link rel="icon" href="${pageContext.request.contextPath}/resources/Images/ulogo.jpg" type="image/icon type">
 </head>
 <body>
 <div class="menu-bar">
-    <h1 class="logo"><img src="${pageContext.request.contextPath}/resources/Images/logo.png" alt="Italian Trulli" width="30" height="28"><span> UMS</span></h1>
+    <h1 class="logo"><img src="${pageContext.request.contextPath}/resources/Images/ulogo.jpg"  width="50" height="50" alt="logo"><span> UMS</span></h1>
 
 
     <ul>
@@ -29,7 +29,6 @@
 </div>
 
 
-<center><button type="button" class="btn btn-primary"  onclick="window.location.href='Addcourse'; return false;">Add Course</button></center>
-<center><button type="button" class="btn btn-success"  onclick="window.location.href='Addcourse'; return false;">Assign Course</button></center>
+
 </body>
 </html>

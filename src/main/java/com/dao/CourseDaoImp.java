@@ -1,6 +1,7 @@
 package com.dao;
 
 import com.model.Course;
+import com.model.User;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
@@ -53,7 +54,9 @@ public class CourseDaoImp implements CourseDao {
     }
 
     @Override
-    public List<Course> getAll(String firstName) {
-        return null;
+    public List<Course> getAll(String coursename) {
+        Session session = sessionFactory.getCurrentSession();
+        Query<Course> userQuery = session.createQuery("from Course where CourseName like '%" + coursename + "%'", Course.class);
+        return userQuery.getResultList();
     }
 }

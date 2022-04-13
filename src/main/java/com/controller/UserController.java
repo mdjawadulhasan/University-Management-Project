@@ -48,7 +48,7 @@ public class UserController {
     @RequestMapping("/see")
     public String list() {
 
-        return "body";
+        return "Adminbody";
     }
 
     @RequestMapping("/user-create-form")

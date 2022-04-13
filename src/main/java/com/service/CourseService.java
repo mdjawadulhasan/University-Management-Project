@@ -1,7 +1,6 @@
 package com.service;
 
 import com.model.Course;
-import com.model.User;
 
 import java.util.List;
 
@@ -13,7 +12,7 @@ public interface CourseService {
 
     public Course get(int id);
 
- public void update(Course course);
+    public void update(Course course);
 
     public void delete(int id);
 

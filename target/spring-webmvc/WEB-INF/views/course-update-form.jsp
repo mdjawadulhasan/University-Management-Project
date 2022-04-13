@@ -14,18 +14,16 @@
     <link type="text/css"
           rel="stylesheet"
           href="${pageContext.request.contextPath}/resources/css/add-user-style.css">
+
+    <jsp:include page="Adminbody.jsp"/>
 </head>
 
 <body>
 
-<div id="wrapper">
-    <div id="header">
-        <h2>User Form</h2>
-    </div>
-</div>
+>
 
 <div id="container">
-    <h3>Update User</h3>
+    <h3>Update Course</h3>
     <form:form action="updatecourse" modelAttribute="course" method="POST">
         <form:hidden path="id"/>
         <table>
@@ -48,7 +46,7 @@
     <div style="clear; both;"></div>
 
     <p>
-        <a href="${pageContext.request.contextPath}/admin/Addcourse">Back to List</a>
+        <a href="${pageContext.request.contextPath}/admin/Addcourse">Back to Course List</a>
     </p>
 
 </div>

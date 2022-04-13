@@ -30,6 +30,15 @@ public class CourseController {
         webDataBinder.registerCustomEditor(String.class, stringTrimmerEditor);
     }
 
+
+
+    @RequestMapping("/Admin")
+    public String Adhome() {
+
+        return "Admin-home";
+    }
+
+
     @RequestMapping("/Addcourse")
     public String list(Model model) {
         List<Course> courses = new ArrayList<>();
@@ -74,24 +83,16 @@ public class CourseController {
         return "redirect:/admin/Addcourse";
     }
 
-    /*
 
-
-
-
-
-
-
-
-    @RequestMapping("/search")
-    public String search(@RequestParam(name = "searchValue", required = false) String firstname, Model model) {
-        List<User> users = new ArrayList<>();
-        if (firstname == null) {
-            users = userService.getAll();
+    @RequestMapping("/searchcourse")
+    public String search(@RequestParam(name = "searchValue", required = false) String coursename, Model model) {
+        List<Course> courses = new ArrayList<>();
+        if (coursename == null) {
+            courses = courseService.getAll();
         } else {
-            users = userService.getAll(firstname);
+            courses = courseService.getAll(coursename);
         }
-        model.addAttribute("users", users);
-        return "user-list";
-    }*/
+        model.addAttribute("courses", courses);
+        return "course-list";
+    }
 }
