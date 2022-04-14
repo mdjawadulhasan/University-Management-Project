@@ -36,4 +36,13 @@ public class AssignedcourseImp implements AssignedcourseService{
     public List<Assignedcourse> getStudentList(String coursename, String secction) {
         return assignedCourseDao.getStudentList(coursename,secction);
     }
+
+
+    public Assignedcourse get(int id){
+        return assignedCourseDao.get(id);
+    }
+
+    public void UpdateMarks(int id,String marks) {
+        assignedCourseDao.UpdateMarks(id,marks);
+    }
 }

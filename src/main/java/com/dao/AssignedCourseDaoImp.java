@@ -53,6 +53,17 @@ public class AssignedCourseDaoImp implements AssignedCourseDao{
         return assignedcourses == null ? new ArrayList<Assignedcourse>() : assignedcourses;
     }
 
+    @Override
+    public void UpdateMarks(int id, String Result) {
+        Session session = sessionFactory.getCurrentSession();
+        String qryString = "update Assignedcourse c set c.Result=:Result where c.id=:id";
+        Query query = session.createQuery(qryString);
+        query.setParameter("Result", Result);
+        query.setParameter("id", id);
+        query.executeUpdate();
+        int count = query.executeUpdate();
+    }
+
 
     @Override
     public void delete(int id) {

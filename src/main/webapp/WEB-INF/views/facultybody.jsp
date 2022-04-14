@@ -26,6 +26,7 @@
         <li><a href="${pageContext.request.contextPath}/faculty/Profile">Home</a></li>
         <li><a href="${pageContext.request.contextPath}/faculty/Allcourse">Course Registration</a></li>
         <li><a href="${pageContext.request.contextPath}/faculty/Mycourses">Courses </a></li>
+        <li><a href="${pageContext.request.contextPath}/faculty/Gradesubmit">Submit Grade </a></li>
     </ul>
 
 </div>

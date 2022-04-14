@@ -43,17 +43,26 @@
             <tr>
                 <th>Student ID</th>
                 <th>Student Name</th>
+                <th>Marks</th>
+                <th>Update</th>
             </tr>
 
 
-           <% if(assignedcourses.size()>0){%>
+            <% if(assignedcourses.size()>0){%>
 
             <c:forEach var="stcourse" items="${stcourses}">
+
+                <c:url var="updateLink" value="/faculty/markup">
+                    <c:param name="courseid" value="${stcourse.id}"/>
+                </c:url>
 
                 <tr>
                     <td> ${stcourse.studetid} </td>
                     <td> ${stcourse.studentName} </td>
-
+                    <td> ${stcourse.result} </td>
+                    <td>
+                        <a href="${updateLink}" class="btn btn-primary" >Update</a>
+                    </td>
                 </tr>
 
             </c:forEach>

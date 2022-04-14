@@ -16,4 +16,7 @@ public interface AssignedcourseService {
 
     public List<Assignedcourse> getStudentList(String coursename,String secction);
 
+    public Assignedcourse get(int id);
+
+    public void UpdateMarks(int id,String marks);
 }

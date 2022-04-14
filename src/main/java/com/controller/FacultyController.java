@@ -133,10 +133,41 @@ public class FacultyController {
     }
 
 
-    @RequestMapping("/sectionstudentlist")
-    public String SectionStuden() {
+    @RequestMapping("/Gradesubmit")
+    public String GradeSubmit(ModelMap model, HttpServletRequest request) {
+        List<Course> scourses = new ArrayList<>();
+        Faculty f = (Faculty) request.getSession().getAttribute("faculty");
+        scourses = courseService.SelectedCourse(f.getFacultyName());
+        model.addAttribute("scourses", scourses);
+        return "Allsections";
+    }
 
-        return "Student-list";
+
+    @RequestMapping("/Allstudents")
+    public String Allstudentlist(@RequestParam("cname") String cname, @RequestParam("section") String section, ModelMap model, HttpServletRequest request) {
+
+
+        List<Assignedcourse> stcourses = new ArrayList<>();
+        stcourses = assignedcourseService.getStudentList(cname, section);
+        model.addAttribute("stcourses", stcourses);
+        return "Gradelist";
+
+    }
+
+    @RequestMapping("/markup")
+    public String markupdate(@RequestParam("courseid") int id, Model model) {
+        Assignedcourse assignedcourse = assignedcourseService.get(id);
+        model.addAttribute("assignedcourse", assignedcourse);
+        return "Setmarks";
+    }
+
+
+    @RequestMapping("/updatemarks")
+    public String update(@RequestParam("marks") String marks, @RequestParam("id") int id) {
+        System.out.println(marks);
+        System.out.println(id);
+        assignedcourseService.UpdateMarks(id, marks);
+        return "redirect:/faculty/Gradesubmit";
     }
 
 }

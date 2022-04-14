@@ -18,4 +18,6 @@ public interface AssignedCourseDao {
 
     public List<Assignedcourse> getStudentList(String coursename,String secction);
 
+    public void UpdateMarks(int id,String marks);
+
 }
