@@ -9,5 +9,7 @@ public interface StudentDao {
 
     public Student getStudent(Student student);
 
+    public void update(Student student);
+
 
 }

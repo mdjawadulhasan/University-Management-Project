@@ -30,4 +30,9 @@ public class StudentServiceImp implements StudentService {
     public Student getStudent(Student student) {
         return studentDao.getStudent(student);
     }
+
+    @Override
+    public void update(Student student) {
+        studentDao.update(student);
+    }
 }

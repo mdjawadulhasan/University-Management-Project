@@ -34,10 +34,24 @@ public class StudentController {
         return "student-reg";
     }
 
-//    @RequestMapping("/update")
-//    public String Profile(Model model) {
-//        return "update-student";
-//    }
+    @RequestMapping("/update")
+    public String UpProfile(@RequestParam("stemail") String stemail,@RequestParam("stname") String stname, @RequestParam("Stid") String studentid, @RequestParam("stdept") String stdept, @RequestParam("stsession") String stsession, @RequestParam("stpass") String stpass, @RequestParam("stbgrp") String stbgrp,@RequestParam("stpk") int stpk,@RequestParam("stgender") String stgender,Model model) {
+        Student reqstudent = new Student();
+        reqstudent.setStudentName(stname);
+        reqstudent.setStudentDept(stdept);
+        reqstudent.setStudentSession(stsession);
+        reqstudent.setStudentBgrp(stbgrp);
+        reqstudent.setStudentGender(stgender);
+        reqstudent.setId(stpk);
+        reqstudent.setStudentpass(stpass);
+        reqstudent.setStudentID(studentid);
+        reqstudent.setStudentemaIL(stemail);
+        studentService.update(reqstudent);
+
+        Student student = studentService.getStudent(reqstudent);
+        model.addAttribute("student", student);
+        return "student-profile";
+    }
 
     @RequestMapping("/createstudent")
     public String create(@ModelAttribute("student") Student student) {

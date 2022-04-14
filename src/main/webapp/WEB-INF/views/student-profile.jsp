@@ -5,10 +5,9 @@
 <%@ page isELIgnored="false" %>
 <jsp:include page="Studentbody.jsp"/>
 <%
-    Student student= (Student) request.getAttribute("student");
+    Student student = (Student) request.getAttribute("student");
 
 %>
-
 
 
 <html>
@@ -24,7 +23,7 @@
 </head>
 <body>
 
-<form action="UpdaterVoterservlet" method="post">
+<form action="update" method="post">
     <div class="container rounded bg-white mt-5 mb-5">
         <div class="row">
             <div class="col-md-3 border-right">
@@ -41,44 +40,57 @@
                     </div>
                     <div class="row mt-2">
                         <div class="col-md-6"><label class="labels">Name</label><input type="text" class="form-control"
-                                                                                       name="votername"
+                                                                                       name="stname"
                                                                                        value="<%=student.getStudentName()%>">
                         </div>
-                        <div class="col-md-6"><label class="labels">ID</label><input type="text" name="voterusername" class="form-control"
-                                                                                           value="<%=student.getStudentID()%>"
+                        <div class="col-md-6"><label class="labels">ID</label><input type="text" name="Stid"
+                                                                                     class="form-control"
+                                                                                     value="<%=student.getStudentID()%>"
+                                                                                     readonly
                         >
                         </div>
                     </div>
                     <div class="row mt-3">
-                        <div class="col-md-12"><label class="labels">Department</label><input type="text" name="nid"
+                        <div class="col-md-12"><label class="labels">Department</label><input type="text" name="stdept"
                                                                                               class="form-control"
                                                                                               value="<%=student.getStudentDept()%>">
                         </div>
-                        <div class="col-md-12"><label class="labels">Session</label><input type="text" name="voterareacode"
-                                                                                             class="form-control"
-                                                                                             value="<%=student.getStudentSession()%>">
+                        <div class="col-md-12"><label class="labels">Session</label><input type="text" name="stsession"
+                                                                                           class="form-control"
+                                                                                           value="<%=student.getStudentSession()%>">
                         </div>
-                        <div class="col-md-12"><label class="labels">Blood Group</label><input type="text" name="votersge"
-                                                                                       class="form-control"
-                                                                                       placeholder="enter address line 2"
-                                                                                       value="<%=student.getStudentBgrp()%>"></div>
-                        <div class="col-md-12"><label class="labels">Gender</label><input type="text" name="votergender" class="form-control"
+                        <div class="col-md-12"><label class="labels">Blood Group</label><input type="text" name="stbgrp"
+                                                                                               class="form-control"
+                                                                                               value="<%=student.getStudentBgrp()%>">
+                        </div>
+                        <div class="col-md-12"><label class="labels">Gender</label><input type="text" name="stgender"
+                                                                                          class="form-control"
                                                                                           value="<%=student.getStudentGender()%>">
                         </div>
 
-                        <div class="col-md-12"><label class="labels">Password</label><input type="text" name="voterpass"
-                                                                                            class="form-control"
-                                                                                            value="<%=student.getStudentpass()%>">
+                        <div class="col-md-12"><label class="labels"></label><input type="hidden" name="stpass"
+                                                                                    class="form-control"
+                                                                                    value="<%=student.getStudentpass()%>">
                         </div>
 
-                        <div class="col-md-12"><label class="labels">Active Status</label> <lebel id="labelac"><input type="text"
-                                                                                                                      class="form-control"
-                                                                                                                      value="<%=student.getStudentIsActive()%>"></lebel>
+                        <input type="hidden" name="stpk"
+                               class="form-control"
+                               value="<%=student.getId()%>">
+
+                        <input type="hidden" name="stemail"
+                               class="form-control"
+                               value="<%=student.getStudentemaIL()%>">
+
+
+                        <div class="col-md-12"><label class="labels">Active Status</label>
+                            <lebel id="labelac"><input type="text"
+                                                       class="form-control"
+                                                       value="<%=student.getStudentIsActive()%>"></lebel>
                         </div>
 
 
                         <div class="mt-5 text-center">
-                            <button type="submit" class="btn btn-primary profile-button" >Update Profile</button>
+                            <button type="submit" class="btn btn-primary profile-button">Update Profile</button>
                         </div>
 
 
@@ -91,18 +103,18 @@
 
 </form>
 <%
-    if(student.getStudentIsActive()==1){
+    if (student.getStudentIsActive() == 1) {
 %>
 <script>
-    document.getElementById("labelac").innerHTML="Active";
-    document.getElementById("labelac").style.color="green"
+    document.getElementById("labelac").innerHTML = "Active";
+    document.getElementById("labelac").style.color = "green"
 </script>
 <%
-}else{
+} else {
 %>
 <script>
-    document.getElementById("labelac").innerHTML="Not Active"
-    document.getElementById("labelac").style.color="red"
+    document.getElementById("labelac").innerHTML = "Not Active"
+    document.getElementById("labelac").style.color = "red"
 </script>
 
 <%

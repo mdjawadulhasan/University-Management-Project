@@ -1,5 +1,6 @@
 package com.dao;
 
+import com.model.Course;
 import com.model.Student;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -43,4 +44,14 @@ public class StudentDaoImp implements StudentDao{
             return null;
         }
     }
+
+    @Override
+    public void update(Student student) {
+        Session session = this.sessionFactory.getCurrentSession();
+        session.update(student);
+    }
+
+
+
+
 }

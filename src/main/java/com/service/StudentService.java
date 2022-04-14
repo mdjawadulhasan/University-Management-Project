@@ -8,4 +8,7 @@ public interface StudentService {
     public void save(Student student);
 
     public Student getStudent(Student student);
+
+
+    public void update(Student student);
 }
