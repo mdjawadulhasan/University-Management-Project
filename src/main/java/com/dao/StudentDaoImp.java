@@ -20,7 +20,7 @@ public class StudentDaoImp implements StudentDao{
     public StudentDaoImp(SessionFactory sessionFactory) {
         this.sessionFactory = sessionFactory;
     }
-    private HibernateTemplate hibernateTemplate;
+
 
     @Override
     public void save(Student student) {
