@@ -37,4 +37,18 @@ public class AssignedCourseDaoImp implements AssignedCourseDao{
         Session session = this.sessionFactory.getCurrentSession();
         session.save(assignedcourse);
     }
+
+    @Override
+    public Assignedcourse get(int id) {
+        Session session = this.sessionFactory.getCurrentSession();
+        return session.get(Assignedcourse.class, id);
+    }
+
+
+    @Override
+    public void delete(int id) {
+        Assignedcourse assignedcourse = get(id);
+        Session session = this.sessionFactory.getCurrentSession();
+        session.delete(assignedcourse);
+    }
 }

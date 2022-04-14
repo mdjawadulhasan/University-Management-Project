@@ -41,7 +41,7 @@
 
             <c:forEach var="course" items="${courses}">
 
-                <c:url var="AddLink" value="/student/registercourse">
+                <c:url var="DltLink" value="/student/registercourse">
                     <c:param name="courseid" value="${course.id}"/>
                 </c:url>
 
@@ -49,7 +49,7 @@
                     <td> ${course.courseName} </td>
                     <td> ${course.coureseSection} </td>
                     <td>
-                        <a href="${AddLink}" class="btn btn-primary " >Add</a>
+                        <a href="${DltLink}" class="btn btn-primary " >Add</a>
                     </td>
                 </tr>
 
@@ -82,15 +82,15 @@
 
             <c:forEach var="assignedcourse" items="${assignedcourses}">
 
-              <%--  <c:url var="AddLink" value="/admin/course-update">
-                    <c:param name="courseid" value="${assignedcourses.id}"/>
-                </c:url>--%>
+                <c:url var="DltLink" value="/student/deletecourse">
+                    <c:param name="courseid" value="${assignedcourse.id}"/>
+                </c:url>
 
                 <tr>
                     <td> ${assignedcourse.courseName} </td>
                     <td> ${assignedcourse.courseSection} </td>
                     <td>
-                        <a href="${AddLink}" class="btn btn-primary " >Add</a>
+                        <a href="${DltLink}" class="btn btn-danger" >Delete</a>
                     </td>
                 </tr>
 

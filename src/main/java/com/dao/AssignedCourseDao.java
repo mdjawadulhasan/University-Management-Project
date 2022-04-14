@@ -11,4 +11,9 @@ public interface AssignedCourseDao {
     public List<Assignedcourse> getAll(String studentid);
 
     public void save(Assignedcourse assignedcourse);
+
+    public void delete(int id);
+
+    public Assignedcourse get(int id);
+
 }

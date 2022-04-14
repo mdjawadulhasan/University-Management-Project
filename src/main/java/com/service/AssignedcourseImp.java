@@ -26,4 +26,9 @@ public class AssignedcourseImp implements AssignedcourseService{
     public void save(Assignedcourse assignedcourse) {
         assignedCourseDao.save(assignedcourse);
     }
+
+    @Override
+    public void delete(int id) {
+        assignedCourseDao.delete(id);
+    }
 }

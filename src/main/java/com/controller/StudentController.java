@@ -159,4 +159,11 @@ public class StudentController {
         return "redirect:/student/Offeredcourses";
     }
 
+
+    @RequestMapping("/deletecourse")
+    public String delete(@RequestParam("courseid") int id) {
+        assignedcourseService.delete(id);
+        return "redirect:/student/Offeredcourses";
+    }
+
 }

@@ -12,4 +12,6 @@ public interface AssignedcourseService {
 
     public void save(Assignedcourse assignedcourse);
 
+    public void delete(int id);
+
 }
