@@ -1,24 +1,109 @@
-<%@ page import="com.model.Student" %><%--
-  Created by IntelliJ IDEA.
-  User: Jawad
-  Date: 4/14/2022
-  Time: 2:13 PM
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<jsp:include page="Studentbody.jsp"/>
-<%
-    Student student = (Student) session.getAttribute("student");
-
-%>
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ page isELIgnored="false" %>
 
 <html>
 <head>
-    <title>Course Registration</title>
-    <h2>Hello <%=student.getStudentName()%></h2>
+    <title>Course List</title>
+    <link type="text/css"
+          rel="stylesheet"
+          href="${pageContext.request.contextPath}/resources/css/style.css"/>
+    <jsp:include page="Studentbody.jsp"/>
+
+
 </head>
 <body>
+
+<div id="ctitle">
+    <h2>Offered Courses </h2>
+</div>
+
+
+<div id="container">
+
+    <div id="content">
+
+        <form:form action="searchcourse" method="GET">
+            Search user by Coursename: <input type="text" name="searchValue"/>
+            <input type="submit" class="btn btn-success" value="Search" class="add-button"/>
+        </form:form>
+
+
+
+        <table>
+            <tr>
+                <th>Course Name</th>
+                <th>Section Name</th>
+                <th>Add</th>
+
+            </tr>
+
+            <c:forEach var="course" items="${courses}">
+
+                <c:url var="AddLink" value="/student/registercourse">
+                    <c:param name="courseid" value="${course.id}"/>
+                </c:url>
+
+                <tr>
+                    <td> ${course.courseName} </td>
+                    <td> ${course.coureseSection} </td>
+                    <td>
+                        <a href="${AddLink}" class="btn btn-primary " >Add</a>
+                    </td>
+                </tr>
+
+            </c:forEach>
+
+        </table>
+
+    </div>
+
+</div>
+
+
+<div id="ctitle">
+    <h2>Added Courses </h2>
+</div>
+
+
+<div id="container">
+
+    <div id="content">
+
+
+        <table>
+            <tr>
+                <th>Course Name</th>
+                <th>Section Name</th>
+                <th>Add</th>
+
+            </tr>
+
+            <c:forEach var="assignedcourse" items="${assignedcourses}">
+
+              <%--  <c:url var="AddLink" value="/admin/course-update">
+                    <c:param name="courseid" value="${assignedcourses.id}"/>
+                </c:url>--%>
+
+                <tr>
+                    <td> ${assignedcourse.courseName} </td>
+                    <td> ${assignedcourse.courseSection} </td>
+                    <td>
+                        <a href="${AddLink}" class="btn btn-primary " >Add</a>
+                    </td>
+                </tr>
+
+            </c:forEach>
+
+        </table>
+
+    </div>
+
+</div>
+
+
+
 
 </body>
 </html>

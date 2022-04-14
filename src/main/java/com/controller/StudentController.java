@@ -1,10 +1,15 @@
 package com.controller;
 
+import com.model.Assignedcourse;
+import com.model.Course;
 import com.model.Student;
+import com.service.AssignedcourseService;
+import com.service.CourseService;
 import com.service.StudentService;
 import org.springframework.beans.propertyeditors.StringTrimmerEditor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -12,15 +17,22 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.ArrayList;
+import java.util.List;
 
 @Controller
 @RequestMapping("/student")
 public class StudentController {
 
     private final StudentService studentService;
+    private final CourseService courseService;
+    private final AssignedcourseService assignedcourseService;
 
-    public StudentController(StudentService studentService) {
+
+    public StudentController(StudentService studentService, CourseService courseService, AssignedcourseService assignedcourseService) {
         this.studentService = studentService;
+        this.courseService = courseService;
+        this.assignedcourseService = assignedcourseService;
     }
 
     @InitBinder
@@ -93,6 +105,43 @@ public class StudentController {
     public String Profile(){
 
         return "student-profile";
+    }
+
+    @RequestMapping("/Offeredcourses")
+    public String list(ModelMap model) {
+        List<Course> courses = new ArrayList<>();
+        courses = courseService.getAll();
+        model.addAttribute("courses", courses);
+
+
+        List<Assignedcourse> assignedcourses = new ArrayList<>();
+        assignedcourses = assignedcourseService.getAll();
+        model.addAttribute("assignedcourses", assignedcourses);
+        return "Course-registration";
+    }
+
+
+    @RequestMapping("/searchcourse")
+    public String search(@RequestParam(name = "searchValue", required = false) String coursename, Model model) {
+        List<Course> courses = new ArrayList<>();
+        if (coursename == null) {
+            courses = courseService.getAll();
+        } else {
+            courses = courseService.getAll(coursename);
+        }
+        model.addAttribute("courses", courses);
+        return "Course-registration";
+    }
+
+
+
+    @RequestMapping("/registercourse")
+    public String RegisterCourse (@RequestParam("courseid") int id){
+        Course course = courseService.get(id);
+        System.out.println(course.getCourseName());
+        System.out.println(course.getCoureseSection());
+
+        return "redirect:/student/Offeredcourses";
     }
 
 }

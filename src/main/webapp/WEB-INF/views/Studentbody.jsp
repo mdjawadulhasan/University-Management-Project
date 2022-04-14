@@ -22,7 +22,7 @@
     <ul>
         <li><a href="#">Welcome</a></li>
         <li><a href="${pageContext.request.contextPath}/student/Profile">Home</a></li>
-        <li><a href="logoutcandidate">Logout</a></li>
+        <li><a href="${pageContext.request.contextPath}/student/Offeredcourses">Course Registration</a></li>
     </ul>
 
 </div>
