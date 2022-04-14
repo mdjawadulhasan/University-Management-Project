@@ -49,4 +49,21 @@ public class CourseServiceImpl implements CourseService {
     public List<Course> getAll(String firstName) {
         return courseDao.getAll(firstName);
     }
+
+    @Override
+    public List<Course> SelectedCourse(String FtName) {
+        return courseDao.SelectedCourse(FtName);
+    }
+
+    @Override
+    public void Addfaculty(int id, String facultyname) {
+        courseDao.Addfaculty(id,facultyname);
+    }
+
+    @Override
+    public void Removefaculty(int id, String facultyname) {
+        courseDao.Removefaculty(id,facultyname);
+    }
+
+
 }

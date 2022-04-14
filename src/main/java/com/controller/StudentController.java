@@ -103,7 +103,6 @@ public class StudentController {
 
     @RequestMapping("/Profile")
     public String Profile(){
-
         return "student-profile";
     }
 
@@ -149,10 +148,6 @@ public class StudentController {
         assignedcourse.setCourseName(course.getCourseName());
         assignedcourse.setCourseSection(course.getCoureseSection());
         assignedcourse.setStudetid(s.getStudentID());
-
-        System.out.println(assignedcourse.getCourseName());
-        System.out.println(assignedcourse.getCourseSection());
-        System.out.println(assignedcourse.getStudetid());
 
 
        assignedcourseService.save(assignedcourse);

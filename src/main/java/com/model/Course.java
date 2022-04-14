@@ -24,13 +24,18 @@ public class Course {
     private String CoureseSection;
 
 
+    @Column(name = "faculty")
+    private String FacultyName;
+
+
     public Course() {
     }
 
-    public Course(int id, String courseName, String coureseSection) {
+    public Course(int id, String courseName, String coureseSection, String facultyName) {
         this.id = id;
         CourseName = courseName;
         CoureseSection = coureseSection;
+        FacultyName = facultyName;
     }
 
     public int getId() {
@@ -55,5 +60,13 @@ public class Course {
 
     public void setCoureseSection(String coureseSection) {
         CoureseSection = coureseSection;
+    }
+
+    public String getFacultyName() {
+        return FacultyName;
+    }
+
+    public void setFacultyName(String facultyName) {
+        FacultyName = facultyName;
     }
 }

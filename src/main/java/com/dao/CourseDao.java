@@ -18,5 +18,11 @@ public interface CourseDao  {
 
     public List<Course> getAll(String firstName);
 
+    public List<Course> SelectedCourse(String FtName);
+
+    public void Addfaculty(int id,String facultyname);
+
+    public void Removefaculty(int id,String facultyname);
+
 
 }

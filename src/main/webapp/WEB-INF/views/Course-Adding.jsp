@@ -9,14 +9,14 @@
     <link type="text/css"
           rel="stylesheet"
           href="${pageContext.request.contextPath}/resources/css/style.css"/>
-    <jsp:include page="Studentbody.jsp"/>
+    <jsp:include page="facultybody.jsp"/>
 
 
 </head>
 <body>
 
 <div id="ctitle">
-    <h2>Offered Courses </h2>
+    <h2>Available Courses </h2>
 </div>
 
 
@@ -24,10 +24,10 @@
 
     <div id="content">
 
-        <form:form action="searchcourse" method="GET">
+       <%-- <form:form action="searchcourse" method="GET">
             Search user by Coursename: <input type="text" name="searchValue"/>
             <input type="submit" class="btn btn-success" value="Search" class="add-button"/>
-        </form:form>
+        </form:form>--%>
 
 
 
@@ -35,19 +35,21 @@
             <tr>
                 <th>Course Name</th>
                 <th>Section Name</th>
+                <th>Faculty Name</th>
                 <th>Add</th>
 
             </tr>
 
             <c:forEach var="course" items="${courses}">
 
-                <c:url var="CrsAddlink" value="/student/registercourse">
+                <c:url var="CrsAddlink" value="/faculty/Addcourse">
                     <c:param name="courseid" value="${course.id}"/>
                 </c:url>
 
                 <tr>
                     <td> ${course.courseName} </td>
                     <td> ${course.coureseSection} </td>
+                    <td> ${course.facultyName} </td>
                     <td>
                         <a href="${CrsAddlink}" class="btn btn-primary " >Add</a>
                     </td>
@@ -76,21 +78,23 @@
             <tr>
                 <th>Course Name</th>
                 <th>Section Name</th>
+                <th>Faculty Name</th>
                 <th>Add</th>
 
             </tr>
 
-            <c:forEach var="assignedcourse" items="${assignedcourses}">
+            <c:forEach var="scourse" items="${scourses}">
 
-                <c:url var="DltLink" value="/student/deletecourse">
-                    <c:param name="courseid" value="${assignedcourse.id}"/>
+                <c:url var="CrsAddlink" value="/faculty/removecourse">
+                    <c:param name="courseid" value="${scourse.id}"/>
                 </c:url>
 
                 <tr>
-                    <td> ${assignedcourse.courseName} </td>
-                    <td> ${assignedcourse.courseSection} </td>
+                    <td> ${scourse.courseName} </td>
+                    <td> ${scourse.coureseSection} </td>
+                    <td> ${scourse.facultyName} </td>
                     <td>
-                        <a href="${CrsAddlink}" class="btn btn-danger" >Delete</a>
+                        <a href="${CrsAddlink}" class="btn btn-danger" >Remove</a>
                     </td>
                 </tr>
 

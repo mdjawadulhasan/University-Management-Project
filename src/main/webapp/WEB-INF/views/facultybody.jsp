@@ -11,22 +11,23 @@
           rel="stylesheet"
           href="${pageContext.request.contextPath}/resources/css/navbar.css"/>
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="icon" href="${pageContext.request.contextPath}/resources/Images/ulogo.jpg" type="image/icon type">
 </head>
 <body>
 <div class="menu-bar">
-    <h1 class="logo"><img src="${pageContext.request.contextPath}/resources/Images/ulogo.jpg"  width="50" height="50" alt="logo"><span> UMS</span></h1>
+    <h1 class="logo"><img src="${pageContext.request.contextPath}/resources/Images/ulogo.jpg" width="50" height="50"
+                          alt="logo"><span> UMS</span></h1>
 
 
     <ul>
         <li><a href="#">Welcome</a></li>
-<%--        <li><a href="${pageContext.request.contextPath}/student/Profile">Home</a></li>--%>
-<%--        <li><a href="${pageContext.request.contextPath}/student/Offeredcourses">Course Registration</a></li>--%>
+        <li><a href="${pageContext.request.contextPath}/faculty/Profile">Home</a></li>
+        <li><a href="${pageContext.request.contextPath}/faculty/Allcourse">Course Registration</a></li>
     </ul>
 
 </div>
-
 
 
 </body>
