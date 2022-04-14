@@ -4,8 +4,11 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ page isELIgnored="false" %>
 <jsp:include page="Studentbody.jsp"/>
+
+
+
 <%
-    Student student = (Student) request.getAttribute("student");
+    Student student = (Student) session.getAttribute("student");
 
 %>
 

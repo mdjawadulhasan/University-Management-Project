@@ -1,3 +1,4 @@
+<%@ page import="com.model.Student" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
@@ -20,7 +21,7 @@
 
     <ul>
         <li><a href="#">Welcome</a></li>
-        <li><a href="${pageContext.request.contextPath}/admin/Admine">Home</a></li>
+        <li><a href="${pageContext.request.contextPath}/student/Profile">Home</a></li>
         <li><a href="logoutcandidate">Logout</a></li>
     </ul>
 

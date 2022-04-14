@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.servlet.http.HttpServletRequest;
+
 @Controller
 @RequestMapping("/student")
 public class StudentController {
@@ -61,7 +63,7 @@ public class StudentController {
 
 
     @RequestMapping("/stlogin")
-    public String login(@RequestParam("studentid") String studentid, @RequestParam("password") String pass, Model model) {
+    public String login(@RequestParam("studentid") String studentid, @RequestParam("password") String pass, Model model, HttpServletRequest request) {
         Student reqstudent = new Student();
         reqstudent.setStudentID(studentid);
         reqstudent.setStudentpass(pass);
@@ -70,6 +72,7 @@ public class StudentController {
         Student student = studentService.getStudent(reqstudent);
         if (student != null) {
             model.addAttribute("student", student);
+            request.getSession().setAttribute("student", student);
             return "student-profile";
         } else {
             model.addAttribute("msg", "failed");
@@ -77,6 +80,19 @@ public class StudentController {
         }
 
 
+    }
+
+    @RequestMapping("/Courseregistration")
+    public String tes(){
+
+        return "Course-registration";
+    }
+
+
+    @RequestMapping("/Profile")
+    public String Profile(){
+
+        return "student-profile";
     }
 
 }
