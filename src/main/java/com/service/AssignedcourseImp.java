@@ -18,7 +18,12 @@ public class AssignedcourseImp implements AssignedcourseService{
     }
 
     @Override
-    public List<Assignedcourse> getAll() {
-        return assignedCourseDao.getAll();
+    public List<Assignedcourse> getAll(String studentid) {
+        return assignedCourseDao.getAll(studentid);
+    }
+
+    @Override
+    public void save(Assignedcourse assignedcourse) {
+        assignedCourseDao.save(assignedcourse);
     }
 }

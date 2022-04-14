@@ -8,5 +8,8 @@ import java.util.List;
 public interface AssignedcourseService {
 
 
-    public List<Assignedcourse> getAll();
+    public List<Assignedcourse> getAll(String studentid);
+
+    public void save(Assignedcourse assignedcourse);
+
 }

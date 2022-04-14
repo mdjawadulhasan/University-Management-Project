@@ -108,14 +108,16 @@ public class StudentController {
     }
 
     @RequestMapping("/Offeredcourses")
-    public String list(ModelMap model) {
+    public String list(ModelMap model,HttpServletRequest request) {
         List<Course> courses = new ArrayList<>();
         courses = courseService.getAll();
         model.addAttribute("courses", courses);
 
+        Student s= (Student) request.getSession().getAttribute("student");
+        System.out.println(s.getStudentID());
 
         List<Assignedcourse> assignedcourses = new ArrayList<>();
-        assignedcourses = assignedcourseService.getAll();
+        assignedcourses = assignedcourseService.getAll(s.getStudentID());
         model.addAttribute("assignedcourses", assignedcourses);
         return "Course-registration";
     }
@@ -136,11 +138,24 @@ public class StudentController {
 
 
     @RequestMapping("/registercourse")
-    public String RegisterCourse (@RequestParam("courseid") int id){
+    public String RegisterCourse (@RequestParam("courseid") int id,HttpServletRequest request){
         Course course = courseService.get(id);
-        System.out.println(course.getCourseName());
-        System.out.println(course.getCoureseSection());
 
+
+
+        Student s= (Student) request.getSession().getAttribute("student");
+
+        Assignedcourse assignedcourse=new Assignedcourse();
+        assignedcourse.setCourseName(course.getCourseName());
+        assignedcourse.setCourseSection(course.getCoureseSection());
+        assignedcourse.setStudetid(s.getStudentID());
+
+        System.out.println(assignedcourse.getCourseName());
+        System.out.println(assignedcourse.getCourseSection());
+        System.out.println(assignedcourse.getStudetid());
+
+
+       assignedcourseService.save(assignedcourse);
         return "redirect:/student/Offeredcourses";
     }
 
