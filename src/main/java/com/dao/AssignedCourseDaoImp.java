@@ -23,16 +23,12 @@ public class AssignedCourseDaoImp implements AssignedCourseDao{
 
     @Override
     public List<Assignedcourse> getAll(String studentid) {
+        System.out.println("DAo"+studentid);
         Session session = this.sessionFactory.getCurrentSession();
-        Query<Assignedcourse> courseQuery = session.createQuery("from Assignedcourse", Assignedcourse.class);
+        Query<Assignedcourse> courseQuery = session.createQuery("from Assignedcourse where Studetid=:studentid ", Assignedcourse.class);
+        courseQuery.setParameter("studentid", studentid);
         List<Assignedcourse> assignedcourses = courseQuery.getResultList();
         return assignedcourses == null ? new ArrayList<Assignedcourse>() : assignedcourses;
-
-
-
-
-
-
 
     }
 
