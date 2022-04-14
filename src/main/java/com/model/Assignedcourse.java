@@ -23,15 +23,29 @@ public class Assignedcourse {
     @Column(name = "coursename")
     private String CourseName;
 
+    @Column(name = "faculty")
+    private String Faculty;
+
+    @Column(name = "result")
+    private String Result;
+
+    @Column(name = "studentname")
+    private String StudentName;
+
+
+
 
     public Assignedcourse() {
     }
 
-    public Assignedcourse(int id, String studetid, String courseSection, String courseName) {
+    public Assignedcourse(int id, String studetid, String courseSection, String courseName, String faculty, String result, String studentName) {
         this.id = id;
         Studetid = studetid;
         CourseSection = courseSection;
         CourseName = courseName;
+        Faculty = faculty;
+        Result = result;
+        StudentName = studentName;
     }
 
     public int getId() {
@@ -64,5 +78,29 @@ public class Assignedcourse {
 
     public void setCourseName(String courseName) {
         CourseName = courseName;
+    }
+
+    public String getFaculty() {
+        return Faculty;
+    }
+
+    public void setFaculty(String faculty) {
+        Faculty = faculty;
+    }
+
+    public String getResult() {
+        return Result;
+    }
+
+    public void setResult(String result) {
+        Result = result;
+    }
+
+    public String getStudentName() {
+        return StudentName;
+    }
+
+    public void setStudentName(String studentName) {
+        StudentName = studentName;
     }
 }

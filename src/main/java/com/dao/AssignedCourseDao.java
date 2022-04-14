@@ -16,4 +16,6 @@ public interface AssignedCourseDao {
 
     public Assignedcourse get(int id);
 
+    public List<Assignedcourse> getStudentList(String coursename,String secction);
+
 }

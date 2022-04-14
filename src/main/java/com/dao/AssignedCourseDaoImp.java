@@ -43,6 +43,16 @@ public class AssignedCourseDaoImp implements AssignedCourseDao{
         return session.get(Assignedcourse.class, id);
     }
 
+    @Override
+    public List<Assignedcourse> getStudentList(String CourseName, String CourseSection) {
+        Session session = this.sessionFactory.getCurrentSession();
+        Query<Assignedcourse> courseQuery = session.createQuery("from Assignedcourse where CourseName=:CourseName and CourseSection=:CourseSection ", Assignedcourse.class);
+        courseQuery.setParameter("CourseName", CourseName);
+        courseQuery.setParameter("CourseSection", CourseSection);
+        List<Assignedcourse> assignedcourses = courseQuery.getResultList();
+        return assignedcourses == null ? new ArrayList<Assignedcourse>() : assignedcourses;
+    }
+
 
     @Override
     public void delete(int id) {

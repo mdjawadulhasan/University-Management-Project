@@ -14,4 +14,6 @@ public interface AssignedcourseService {
 
     public void delete(int id);
 
+    public List<Assignedcourse> getStudentList(String coursename,String secction);
+
 }

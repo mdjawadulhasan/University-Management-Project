@@ -31,4 +31,9 @@ public class AssignedcourseImp implements AssignedcourseService{
     public void delete(int id) {
         assignedCourseDao.delete(id);
     }
+
+    @Override
+    public List<Assignedcourse> getStudentList(String coursename, String secction) {
+        return assignedCourseDao.getStudentList(coursename,secction);
+    }
 }

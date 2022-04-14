@@ -90,7 +90,7 @@
                     <td> ${assignedcourse.courseName} </td>
                     <td> ${assignedcourse.courseSection} </td>
                     <td>
-                        <a href="${CrsAddlink}" class="btn btn-danger" >Delete</a>
+                        <a href="${DltLink}" class="btn btn-danger" >Delete</a>
                     </td>
                 </tr>
 

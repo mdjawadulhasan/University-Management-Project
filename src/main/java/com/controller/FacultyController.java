@@ -1,7 +1,9 @@
 package com.controller;
 
+import com.model.Assignedcourse;
 import com.model.Course;
 import com.model.Faculty;
+import com.service.AssignedcourseService;
 import com.service.CourseService;
 import com.service.FacultyService;
 import org.springframework.beans.propertyeditors.StringTrimmerEditor;
@@ -25,10 +27,12 @@ public class FacultyController {
 
     private final FacultyService facultyService;
     private final CourseService courseService;
+    private final AssignedcourseService assignedcourseService;
 
-    public FacultyController(FacultyService facultyService, CourseService courseService) {
+    public FacultyController(FacultyService facultyService, CourseService courseService, AssignedcourseService assignedcourseService) {
         this.facultyService = facultyService;
         this.courseService = courseService;
+        this.assignedcourseService = assignedcourseService;
     }
 
     @InitBinder
@@ -91,19 +95,48 @@ public class FacultyController {
 
 
     @RequestMapping("/Addcourse")
-    public String Addcourse(@RequestParam("courseid") int id,HttpServletRequest request){
+    public String Addcourse(@RequestParam("courseid") int id, HttpServletRequest request) {
 
         Faculty f = (Faculty) request.getSession().getAttribute("faculty");
-        courseService.Addfaculty(id,f.getFacultyName());
+        courseService.Addfaculty(id, f.getFacultyName());
         return "redirect:/faculty/Allcourse";
     }
 
 
     @RequestMapping("/removecourse")
-    public String delete(@RequestParam("courseid") int id,HttpServletRequest request) {
+    public String delete(@RequestParam("courseid") int id, HttpServletRequest request) {
         Faculty f = (Faculty) request.getSession().getAttribute("faculty");
-        courseService.Removefaculty(id,f.getFacultyName());
+        courseService.Removefaculty(id, f.getFacultyName());
         return "redirect:/faculty/Allcourse";
+    }
+
+
+    @RequestMapping("/Mycourses")
+    public String courselist(ModelMap model, HttpServletRequest request) {
+        List<Course> scourses = new ArrayList<>();
+        Faculty f = (Faculty) request.getSession().getAttribute("faculty");
+        scourses = courseService.SelectedCourse(f.getFacultyName());
+        model.addAttribute("scourses", scourses);
+        return "Faculty-courses";
+    }
+
+
+    @RequestMapping("/studentlist")
+    public String studentlist(@RequestParam("cname") String cname, @RequestParam("section") String section, ModelMap model, HttpServletRequest request) {
+
+
+        List<Assignedcourse> stcourses = new ArrayList<>();
+        stcourses = assignedcourseService.getStudentList(cname, section);
+        model.addAttribute("stcourses", stcourses);
+        return "Student-list";
+
+    }
+
+
+    @RequestMapping("/sectionstudentlist")
+    public String SectionStuden() {
+
+        return "Student-list";
     }
 
 }

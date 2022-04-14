@@ -148,8 +148,7 @@ public class StudentController {
         assignedcourse.setCourseName(course.getCourseName());
         assignedcourse.setCourseSection(course.getCoureseSection());
         assignedcourse.setStudetid(s.getStudentID());
-
-
+        assignedcourse.setStudentName(s.getStudentName());
        assignedcourseService.save(assignedcourse);
         return "redirect:/student/Offeredcourses";
     }
