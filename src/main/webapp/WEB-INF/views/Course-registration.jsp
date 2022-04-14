@@ -35,6 +35,7 @@
             <tr>
                 <th>Course Name</th>
                 <th>Section Name</th>
+                <th>Faculty Name</th>
                 <th>Add</th>
 
             </tr>
@@ -48,6 +49,7 @@
                 <tr>
                     <td> ${course.courseName} </td>
                     <td> ${course.coureseSection} </td>
+                    <td> ${course.facultyName} </td>
                     <td>
                         <a href="${CrsAddlink}" class="btn btn-primary " >Add</a>
                     </td>

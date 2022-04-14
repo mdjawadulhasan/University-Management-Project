@@ -20,4 +20,6 @@ public interface AssignedCourseDao {
 
     public void UpdateMarks(int id,String marks);
 
+    
+
 }

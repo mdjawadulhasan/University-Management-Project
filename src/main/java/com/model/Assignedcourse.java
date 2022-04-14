@@ -23,9 +23,6 @@ public class Assignedcourse {
     @Column(name = "coursename")
     private String CourseName;
 
-    @Column(name = "faculty")
-    private String Faculty;
-
     @Column(name = "result")
     private String Result;
 
@@ -38,12 +35,11 @@ public class Assignedcourse {
     public Assignedcourse() {
     }
 
-    public Assignedcourse(int id, String studetid, String courseSection, String courseName, String faculty, String result, String studentName) {
+    public Assignedcourse(int id, String studetid, String courseSection, String courseName, String result, String studentName) {
         this.id = id;
         Studetid = studetid;
         CourseSection = courseSection;
         CourseName = courseName;
-        Faculty = faculty;
         Result = result;
         StudentName = studentName;
     }
@@ -80,13 +76,6 @@ public class Assignedcourse {
         CourseName = courseName;
     }
 
-    public String getFaculty() {
-        return Faculty;
-    }
-
-    public void setFaculty(String faculty) {
-        Faculty = faculty;
-    }
 
     public String getResult() {
         return Result;

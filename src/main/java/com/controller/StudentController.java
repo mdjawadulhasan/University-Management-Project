@@ -96,7 +96,6 @@ public class StudentController {
 
     @RequestMapping("/Courseregistration")
     public String tes(){
-
         return "Course-registration";
     }
 
@@ -160,4 +159,15 @@ public class StudentController {
         return "redirect:/student/Offeredcourses";
     }
 
+    @RequestMapping("/seeresult")
+    public String result(ModelMap model,HttpServletRequest request) {
+        Student s= (Student) request.getSession().getAttribute("student");
+        System.out.println(s.getStudentID());
+
+        List<Assignedcourse> assignedcourses = new ArrayList<>();
+        assignedcourses = assignedcourseService.getAll(s.getStudentID());
+        model.addAttribute("assignedcourses", assignedcourses);
+        return "ViewResult";
+
+    }
 }
