@@ -24,4 +24,6 @@ public interface CourseService {
 
     public void Removefaculty(int id,String facultyname);
 
+    public List<Course> getavailable(String FtName);
+
 }

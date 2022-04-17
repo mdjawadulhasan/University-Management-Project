@@ -83,11 +83,13 @@ public class FacultyController {
     public String list(ModelMap model, HttpServletRequest request) {
         List<Course> courses = new ArrayList<>();
 
-        courses = courseService.getAll();
+        Faculty f = (Faculty) request.getSession().getAttribute("faculty");
+
+        courses = courseService.getavailable(f.getFacultyName());
         model.addAttribute("courses", courses);
 
         List<Course> scourses = new ArrayList<>();
-        Faculty f = (Faculty) request.getSession().getAttribute("faculty");
+
         scourses = courseService.SelectedCourse(f.getFacultyName());
         model.addAttribute("scourses", scourses);
         return "Course-Adding";

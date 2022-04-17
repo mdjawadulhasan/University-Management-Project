@@ -65,5 +65,10 @@ public class CourseServiceImpl implements CourseService {
         courseDao.Removefaculty(id,facultyname);
     }
 
+    @Override
+    public List<Course> getavailable(String FtName) {
+        return courseDao.getavailable(FtName);
+    }
+
 
 }
