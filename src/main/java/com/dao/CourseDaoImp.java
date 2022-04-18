@@ -101,7 +101,6 @@ public class CourseDaoImp implements CourseDao {
     public List<Course> getavailable(String FacultyName) {
         Session session = sessionFactory.getCurrentSession();
         Query<Course> courseQuery = session.createQuery("from Course ", Course.class);
-        //courseQuery.setParameter("FacultyName", FacultyName);
         List<Course> courses = courseQuery.getResultList();
         return courses == null ? new ArrayList<Course>() : courses;
     }

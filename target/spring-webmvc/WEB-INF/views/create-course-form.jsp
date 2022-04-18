@@ -14,6 +14,16 @@
     <link type="text/css"
           rel="stylesheet"
           href="${pageContext.request.contextPath}/resources/css/add-user-style.css">
+
+
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,200;1,700&display=swap');
+
+        body{
+            font-family: 'Roboto Mono', monospace;
+        }
+    </style>
 </head>
 
 <body>
@@ -43,7 +53,7 @@
     <div style="clear: both;"></div>
 
     <p>
-        <a href="${pageContext.request.contextPath}/admin/Addcourse">Back to List</a>
+        <a href="${pageContext.request.contextPath}/admin/Addcourse">Back to Course List</a>
     </p>
 
 </div>

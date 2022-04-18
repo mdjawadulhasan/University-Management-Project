@@ -50,7 +50,7 @@ public class StudentController {
     }
 
     @RequestMapping("/update")
-    public String UpProfile(@RequestParam("stemail") String stemail,@RequestParam("stname") String stname, @RequestParam("Stid") String studentid, @RequestParam("stdept") String stdept, @RequestParam("stsession") String stsession, @RequestParam("stpass") String stpass, @RequestParam("stbgrp") String stbgrp,@RequestParam("stpk") int stpk,@RequestParam("stgender") String stgender,Model model) {
+    public String UpProfile(@RequestParam("stemail") String stemail,@RequestParam("stname") String stname, @RequestParam("Stid") String studentid, @RequestParam("stdept") String stdept, @RequestParam("stsession") String stsession, @RequestParam("stpass") String stpass, @RequestParam("stbgrp") String stbgrp,@RequestParam("stpk") int stpk,@RequestParam("stgender") String stgender,Model model,HttpServletRequest request) {
         Student reqstudent = new Student();
         reqstudent.setStudentName(stname);
         reqstudent.setStudentDept(stdept);
@@ -61,10 +61,14 @@ public class StudentController {
         reqstudent.setStudentpass(stpass);
         reqstudent.setStudentID(studentid);
         reqstudent.setStudentemaIL(stemail);
+        reqstudent.setStudentIsActive(1);
         studentService.update(reqstudent);
 
         Student student = studentService.getStudent(reqstudent);
-        model.addAttribute("student", student);
+        System.out.println(student.getStudentName());
+
+
+        request.getSession().setAttribute("student", student);
         return "student-profile";
     }
 

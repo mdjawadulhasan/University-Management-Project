@@ -64,7 +64,7 @@
                         </div>
 
                         <div class="button input-box">
-                            <input type="submit" value="Sumbit">
+                            <input type="submit" value="Submit">
                         </div>
                         <div class="text sign-up-text">Don't have an account? <label for="flip">Sigup now</label></div>
                     </div>
@@ -109,26 +109,7 @@
 </div>
 
 
-<%
-    if (request.getAttribute("msg")=="failed") {
 
-
-%>
-
-<script>
-    Swal.fire({
-        icon: 'error',
-        title: 'Wrong Password',
-        text: 'Try Again!',
-
-    })
-
-</script>
-<%
-
-    }
-
-%>
 
 </body>
 </html>
