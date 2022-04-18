@@ -8,6 +8,8 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
 
+import java.util.List;
+
 @Service
 @Transactional
 public class StudentServiceImp implements StudentService {
@@ -32,7 +34,17 @@ public class StudentServiceImp implements StudentService {
     }
 
     @Override
+    public List<Student> getvalibstudent (int status) {
+       return studentDao.getvalibstudent(status);
+    }
+
+    @Override
     public void update(Student student) {
         studentDao.update(student);
+    }
+
+    @Override
+    public void changestatus(int id, int status) {
+        studentDao.changestatus(id,status);
     }
 }

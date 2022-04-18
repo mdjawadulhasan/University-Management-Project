@@ -28,6 +28,15 @@ public class CourseDaoImp implements CourseDao {
         return courses == null ? new ArrayList<Course>() : courses;
     }
 
+
+    @Override
+    public List<Course> getAll(String coursename) {
+        Session session = sessionFactory.getCurrentSession();
+        Query<Course> courseQuery = session.createQuery("from Course where CourseName like '%" + coursename + "%'", Course.class);
+        return courseQuery.getResultList();
+    }
+
+
     @Override
     public void save(Course course) {
         Session session = this.sessionFactory.getCurrentSession();
@@ -53,12 +62,7 @@ public class CourseDaoImp implements CourseDao {
         session.delete(course);
     }
 
-    @Override
-    public List<Course> getAll(String coursename) {
-        Session session = sessionFactory.getCurrentSession();
-        Query<Course> userQuery = session.createQuery("from Course where CourseName like '%" + coursename + "%'", Course.class);
-        return userQuery.getResultList();
-    }
+
 
     @Override
     public List<Course> SelectedCourse(String FacultyName) {

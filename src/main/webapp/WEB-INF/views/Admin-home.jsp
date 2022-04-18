@@ -20,11 +20,11 @@
 <body>
 <center><button type="button" class="btn btn-primary btn-lg custom"  onclick="window.location.href='Addcourse'; return false;">Add Course</button></center>
 <br>
-<center><button type="button" class="btn btn-success btn-lg custom"  onclick="window.location.href='Addcourse'; return false;">Manage Student</button></center>
+<center><button type="button" class="btn btn-success btn-lg custom"  onclick="window.location.href='studentlist'; return false;">Manage Student</button></center>
 <br>
-<center><button type="button" class="btn btn-secondary btn-lg  custom"  onclick="window.location.href='Addcourse'; return false;">Block Student</button></center>
+<center><button type="button" class="btn btn-danger btn-lg  custom"  onclick="window.location.href='blockstudent'; return false;">Block Student</button></center>
 <br>
-<center><button type="button" class="btn btn-info btn-lg custom"  onclick="window.location.href='Addcourse'; return false;">Manage Faculty Members</button></center>
+
 
 
 

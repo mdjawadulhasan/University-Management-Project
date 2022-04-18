@@ -1,7 +1,9 @@
 package com.controller;
 
 import com.model.Course;
+import com.model.Student;
 import com.service.CourseService;
+import com.service.StudentService;
 import org.springframework.beans.propertyeditors.StringTrimmerEditor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,12 +18,14 @@ import java.util.List;
 
 @Controller
 @RequestMapping("/admin")
-public class CourseController {
+public class AdminController {
 
     private final CourseService courseService;
+    private final StudentService studentService;
 
-    public CourseController(CourseService courseService) {
+    public AdminController(CourseService courseService, StudentService studentService) {
         this.courseService = courseService;
+        this.studentService = studentService;
     }
 
     @InitBinder
@@ -119,4 +123,36 @@ public class CourseController {
         model.addAttribute("courses", courses);
         return "course-list";
     }
+
+
+    @RequestMapping("/studentlist")
+    public String Stlist(Model model) {
+        List<Student> students = new ArrayList<>();
+        students = studentService.getvalibstudent(0);
+        model.addAttribute("students", students);
+        return "active-studentpage";
+    }
+
+    @RequestMapping("/activest")
+    public String activestudent(@RequestParam("stid") int id) {
+        studentService.changestatus(id,1);
+        return "redirect:/admin/studentlist";
+    }
+
+
+    @RequestMapping("/blockstudent")
+    public String Blockstudent(Model model) {
+        List<Student> students = new ArrayList<>();
+        students = studentService.getvalibstudent(1);
+        model.addAttribute("students", students);
+        return "block-student";
+    }
+
+    @RequestMapping("/blockst")
+    public String blockstudent(@RequestParam("stid") int id) {
+        studentService.changestatus(id,0);
+        return "redirect:/admin/blockstudent";
+    }
+
+
 }

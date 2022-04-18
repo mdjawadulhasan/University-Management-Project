@@ -11,6 +11,7 @@ import org.springframework.stereotype.Repository;
 import org.hibernate.query.Query;
 
 import javax.persistence.NoResultException;
+import java.util.ArrayList;
 import java.util.List;
 
 @Repository
@@ -32,11 +33,13 @@ public class StudentDaoImp implements StudentDao{
     public Student getStudent(Student student) {
 
         Session session = this.sessionFactory.getCurrentSession();
-
+        int StudentIsActive=1;
         try {
-        Query<Student> query = session.createQuery("from Student where StudentID =:StudentID and Studentpass =:Studentpass",Student.class);
+        Query<Student> query = session.createQuery("from Student where StudentID =:StudentID and Studentpass =:Studentpass and StudentIsActive=:StudentIsActive",Student.class);
         query.setParameter("StudentID", student.getStudentID());
         query.setParameter("Studentpass", student.getStudentpass());
+        query.setParameter("StudentIsActive",StudentIsActive);
+
         student = query.getSingleResult();
             return student;
         }catch (NoResultException e) {
@@ -51,7 +54,25 @@ public class StudentDaoImp implements StudentDao{
         session.update(student);
     }
 
+    public List<Student> getvalibstudent(int status) {
+        Session session = this.sessionFactory.getCurrentSession();
+        Query<Student> query = session.createQuery("from Student where StudentIsActive=:StudentIsActive",Student.class);
+        query.setParameter("StudentIsActive",status);
+        List<Student> students = query.getResultList();
+        return students == null ? new ArrayList<Student>() : students;
+    }
 
+
+    @Override
+    public void changestatus(int id, int status) {
+        Session session = sessionFactory.getCurrentSession();
+        String qryString = "update Student s set s.StudentIsActive=:StudentIsActive where s.id=:id";
+        Query query = session.createQuery(qryString);
+        query.setParameter("StudentIsActive", status);
+        query.setParameter("id", id);
+        query.executeUpdate();
+        int count = query.executeUpdate();
+    }
 
 
 }
