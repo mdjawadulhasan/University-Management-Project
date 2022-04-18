@@ -10,15 +10,21 @@
           rel="stylesheet"
           href="${pageContext.request.contextPath}/resources/css/style.css"/>
     <jsp:include page="Adminbody.jsp"/>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,200;1,700&display=swap');
 
+    h2{
+        font-family: 'Roboto Mono', monospace;
+    }
+    </style>
 
 </head>
 <body>
 
 
-    <div id="ctitle">
-        <h2>Course List</h2>
-    </div>
+<div id="ctitle">
+    <h2>Course List</h2>
+</div>
 
 
 <div id="container">
@@ -26,13 +32,12 @@
     <div id="content">
 
         <form:form action="searchcourse" method="GET">
-            Search user by Coursename: <input type="text" name="searchValue"/>
+            Search user by Coursename:<input type="text" name="searchValue"/>
             <input type="submit" class="btn btn-success" value="Search" class="add-button"/>
             <input type="button" class="btn btn-info" value="Add Course"
                    onclick="window.location.href='course-create-form'; return false;"
                    class="add-button">
         </form:form>
-
 
 
         <table>
@@ -57,7 +62,7 @@
                     <td> ${course.courseName} </td>
                     <td> ${course.coureseSection} </td>
                     <td>
-                        <a href="${updateLink}" class="btn btn-primary" >Update</a>
+                        <a href="${updateLink}" class="btn btn-primary">Update</a>
                     </td>
                     <td><a href="${deleteLink}" class="btn btn-danger">Delete</a></td>
                 </tr>

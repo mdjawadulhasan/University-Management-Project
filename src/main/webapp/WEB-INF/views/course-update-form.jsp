@@ -16,11 +16,25 @@
           href="${pageContext.request.contextPath}/resources/css/add-user-style.css">
 
     <jsp:include page="Adminbody.jsp"/>
+
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,200;1,700&display=swap');
+
+        body{
+            font-family: 'Roboto Mono', monospace;
+        }
+    </style>
+
+
+
+
+
 </head>
 
 <body>
 
->
+
 
 <div id="container">
     <h3>Update Course</h3>

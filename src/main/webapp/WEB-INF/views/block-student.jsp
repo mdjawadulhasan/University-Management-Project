@@ -11,7 +11,19 @@
           href="${pageContext.request.contextPath}/resources/css/style.css"/>
     <jsp:include page="Adminbody.jsp"/>
 
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,200;1,700&display=swap');
 
+        body{
+            font-family: 'Roboto Mono', monospace;
+        }
+
+
+        #ac{
+        color: green;font-family: 'Roboto Mono', monospace;
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
 
@@ -31,7 +43,8 @@
                 <th>Student Name</th>
                 <th>Department</th>
                 <th>Email</th>
-                <th>Delete</th>
+                <th>Status</th>
+                <th>Block</th>
             </tr>
 
             <c:forEach var="student" items="${students}">
@@ -44,6 +57,7 @@
                     <td> ${student.studentName} </td>
                     <td> ${student.studentDept} </td>
                     <td> ${student.studentemaIL} </td>
+                    <td><h5 id="ac">Active</h5></td>
                     <td><a href="${activelink}" class="btn btn-danger">Block</a></td>
                 </tr>
             </c:forEach>

@@ -172,4 +172,10 @@ public class FacultyController {
         return "redirect:/faculty/Gradesubmit";
     }
 
+
+    @RequestMapping("/logout")
+    public String logout() {
+        return "redirect:/faculty/registration";
+    }
+
 }

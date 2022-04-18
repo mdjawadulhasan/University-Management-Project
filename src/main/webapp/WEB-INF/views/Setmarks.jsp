@@ -17,6 +17,13 @@
           href="${pageContext.request.contextPath}/resources/css/add-user-style.css">
 
     <jsp:include page="facultybody.jsp"/>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,200;1,700&display=swap');
+
+        h2{
+            font-family: 'Roboto Mono', monospace;
+        }
+    </style>
 </head>
 
 <body>
@@ -24,7 +31,7 @@
 <% Assignedcourse assignedcourse = (Assignedcourse) request.getAttribute("assignedcourse"); %>
 
 <div id="container">
-    <h3>Submit Marks</h3>
+    <h2>Submit Marks</h2>
     <form action="updatemarks" method="POST">
         <table>
             <tbody>
@@ -53,9 +60,6 @@
     </form>
     <div style="clear; both;"></div>
 
-    <p>
-        <a href="${pageContext.request.contextPath}/admin/Addcourse">Back to Course List</a>
-    </p>
 
 </div>
 </body>

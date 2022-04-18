@@ -109,26 +109,7 @@
 </div>
 
 
-<%
-    if (request.getAttribute("msg")=="failed") {
 
-
-%>
-
-<script>
-    Swal.fire({
-        icon: 'error',
-        title: 'Wrong Password',
-        text: 'Try Again!',
-
-    })
-
-</script>
-<%
-
-    }
-
-%>
 
 </body>
 </html>
